@@ -1,4 +1,4 @@
-package kr.or.ddit.basic;
+ï»¿package kr.or.ddit.basic;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -6,25 +6,25 @@ import java.util.Collections;
 import java.util.Comparator;
 
 /*
-	¹®Á¦) ÇĞ¹ø, ÀÌ¸§, ±¹¾îÁ¡¼ö, ¿µ¾îÁ¡¼ö, ¼öÇĞÁ¡¼ö, ÃÑÁ¡, µî¼ö¸¦ ¸â¹ö·Î °®´Â Student Å¬·¡½º¸¦ ¸¸µç´Ù.
-		ÀÌ Å¬·¡½ºÀÇ »ı¼ºÀÚ¿¡¼­´Â ÇĞ¹ø, ÀÌ¸§, ±¹¾îÁ¡¼ö, ¿µ¾îÁ¡¼ö, ¼öÇĞÁ¡¼ö¸¸ ¸Å°³º¯¼ö·Î ¹Ş¾Æ¼­ ÃÊ±âÈ­ Ã³¸®¸¦ ÇÑ´Ù.
+	ë¬¸ì œ) í•™ë²ˆ, ì´ë¦„, êµ­ì–´ì ìˆ˜, ì˜ì–´ì ìˆ˜, ìˆ˜í•™ì ìˆ˜, ì´ì , ë“±ìˆ˜ë¥¼ ë©¤ë²„ë¡œ ê°–ëŠ” Student í´ë˜ìŠ¤ë¥¼ ë§Œë“ ë‹¤.
+		ì´ í´ë˜ìŠ¤ì˜ ìƒì„±ìì—ì„œëŠ” í•™ë²ˆ, ì´ë¦„, êµ­ì–´ì ìˆ˜, ì˜ì–´ì ìˆ˜, ìˆ˜í•™ì ìˆ˜ë§Œ ë§¤ê°œë³€ìˆ˜ë¡œ ë°›ì•„ì„œ ì´ˆê¸°í™” ì²˜ë¦¬ë¥¼ í•œë‹¤.
 		
-		ÀÌ Student °´Ã¼´Â List¿¡ ÀúÀåÇÏ¿© °ü¸®ÇÑ´Ù.
+		ì´ Student ê°ì²´ëŠ” Listì— ì €ì¥í•˜ì—¬ ê´€ë¦¬í•œë‹¤.
 		
-		List¿¡ ÀúÀåµÈ µ¥ÀÌÅÍµéÀ» ÇĞ¹øÀÇ ¿À¸§Â÷¼ø Á¤·ÄÀÌ µÉ ¼ö ÀÖ´Â ³»ºÎ Á¤·Ä ±âÁØÀ» ±¸ÇöÇÏ°í,
-		ÃÑÁ¡ÀÇ ¿ª¼øÀ¸·Î Á¤·ÄÇÏ´Âµ¥ ÃÑÁ¡ÀÌ °°À¸¸é ÀÌ¸§ÀÇ ¿À¸§Â÷¼øÀ¸·Î Á¤·ÄÀÌ µÇ´Â ¿ÜºÎ Á¤·Ä ±âÁØ Å¬·¡½º¸¦ ÀÛ¼ºÇÏ¿©
-		Á¤·ÄµÈ °á°ú¸¦ Ãâ·ÂÇÏ½Ã¿À.
+		Listì— ì €ì¥ëœ ë°ì´í„°ë“¤ì„ í•™ë²ˆì˜ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬ì´ ë  ìˆ˜ ìˆëŠ” ë‚´ë¶€ ì •ë ¬ ê¸°ì¤€ì„ êµ¬í˜„í•˜ê³ ,
+		ì´ì ì˜ ì—­ìˆœìœ¼ë¡œ ì •ë ¬í•˜ëŠ”ë° ì´ì ì´ ê°™ìœ¼ë©´ ì´ë¦„ì˜ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì •ë ¬ì´ ë˜ëŠ” ì™¸ë¶€ ì •ë ¬ ê¸°ì¤€ í´ë˜ìŠ¤ë¥¼ ì‘ì„±í•˜ì—¬
+		ì •ë ¬ëœ ê²°ê³¼ë¥¼ ì¶œë ¥í•˜ì‹œì˜¤.
 		
-		µî¼ö´Â List¿¡ ÀüÃ¼ µ¥ÀÌÅÍ°¡ Ãß°¡µÈ ÈÄ¿¡ ÀúÀåµÇµµ·Ï ÇÑ´Ù.
+		ë“±ìˆ˜ëŠ” Listì— ì „ì²´ ë°ì´í„°ê°€ ì¶”ê°€ëœ í›„ì— ì €ì¥ë˜ë„ë¡ í•œë‹¤.
 */
 public class StudentTest {
 	
 	public void setRanking(List<Student> stdList) {
-		for(Student std1 : stdList) {	// µî¼ö¸¦ ±¸ÇÒ µ¥ÀÌÅÍ¸¦ À§ÇÑ ¹İº¹¹®
-			int rank = 1;	// Ã³À½¿¡´Â 1µîÀ¸·Î ¼³Á¤ÇØ³õ°í ½ÃÀÛÇÑ´Ù.
-			for(Student std2 : stdList) {	// ºñ±³ ´ë»óÀ» ³ªÅ¸³»±â À§ÇÑ ¹İº¹¹®
+		for(Student std1 : stdList) {	// ë“±ìˆ˜ë¥¼ êµ¬í•  ë°ì´í„°ë¥¼ ìœ„í•œ ë°˜ë³µë¬¸
+			int rank = 1;	// ì²˜ìŒì—ëŠ” 1ë“±ìœ¼ë¡œ ì„¤ì •í•´ë†“ê³  ì‹œì‘í•œë‹¤.
+			for(Student std2 : stdList) {	// ë¹„êµ ëŒ€ìƒì„ ë‚˜íƒ€ë‚´ê¸° ìœ„í•œ ë°˜ë³µë¬¸
 				
-				// µî¼ö ±¸ÇÒ µ¥ÀÌÅÍº¸´Ù Å« °ªÀ» ¸¸³ª¸é rank¸¦ Áõ°¡½ÃÅ²´Ù.
+				// ë“±ìˆ˜ êµ¬í•  ë°ì´í„°ë³´ë‹¤ í° ê°’ì„ ë§Œë‚˜ë©´ rankë¥¼ ì¦ê°€ì‹œí‚¨ë‹¤.
 				if(std1.getSum() < std2.getSum()) {
 					rank++;
 				}
@@ -38,11 +38,11 @@ public class StudentTest {
 		
 		ArrayList<Student> studentList = new ArrayList<>();
 		
-		studentList.add(new Student(20140001, "Àå¼ºº¸", 100, 80, 80));
-		studentList.add(new Student(20170001, "°­Áö¿ø", 91, 70, 80));
-		studentList.add(new Student(20140002, "±èÀÎÇõ", 82, 80, 80));
-		studentList.add(new Student(20120001, "ÀÌÁöÇâ", 70, 90, 80));
-		studentList.add(new Student(20120002, "±èÁø¿ë", 100, 80, 80));
+		studentList.add(new Student(20140001, "ì¥ì„±ë³´", 100, 80, 80));
+		studentList.add(new Student(20170001, "ê°•ì§€ì›", 91, 70, 80));
+		studentList.add(new Student(20140002, "ê¹€ì¸í˜", 82, 80, 80));
+		studentList.add(new Student(20120001, "ì´ì§€í–¥", 70, 90, 80));
+		studentList.add(new Student(20120002, "ê¹€ì§„ìš©", 100, 80, 80));
 		
 /*		for (int i = 0; i < studentList.size(); i++) {
 			int rank = 1;
@@ -56,13 +56,13 @@ public class StudentTest {
 */		
 		stdTest.setRanking(studentList);
 		
-		System.out.println("ÇĞ¹øÀÇ ¿À¸§Â÷¼ø Á¤·Ä");
+		System.out.println("í•™ë²ˆì˜ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬");
 		Collections.sort(studentList);
 		for(Student student : studentList) {
 			System.out.println(student);
 		}
 		
-		System.out.println("ÃÑÁ¡ÀÇ ³»¸²Â÷¼ø, ÃÑÁ¡ÀÌ °°À¸¸é ÀÌ¸§ÀÇ ¿À¸§Â÷¼ø Á¤·Ä");
+		System.out.println("ì´ì ì˜ ë‚´ë¦¼ì°¨ìˆœ, ì´ì ì´ ê°™ìœ¼ë©´ ì´ë¦„ì˜ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬");
 		Collections.sort(studentList, new SumDescNameAsc());
 		for(Student student : studentList) {
 			System.out.println(student);

@@ -1,4 +1,4 @@
-package kr.or.ddit.basic;
+ï»¿package kr.or.ddit.basic;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,36 +10,36 @@ public class LottoTest {
 	public static void main(String[] args) {
 		while(true) {
 			System.out.println("==================");
-			System.out.println("Lotto ÇÁ·Î±×·¥");
+			System.out.println("Lotto í”„ë¡œê·¸ë¨");
 			System.out.println("------------------");
-			System.out.println("1.Lotto ±¸ÀÔ");
-			System.out.println("2.ÇÁ·Î±×·¥ Á¾·á");
+			System.out.println("1.Lotto êµ¬ì…");
+			System.out.println("2.í”„ë¡œê·¸ë¨ ì¢…ë£Œ");
 			System.out.println("==================");
 	
 			Scanner sc = new Scanner(System.in);
 			int input = Integer.parseInt(sc.nextLine());
 			switch (input) {
 			case 1: 
-				System.out.println("·Î¶Ç´Â ÇÏ³ª¿¡ 1000¿ø ÀÔ´Ï´Ù.");
-				System.out.print("±İ¾× ÀÔ·Â > ");
+				System.out.println("ë¡œë˜ëŠ” í•˜ë‚˜ì— 1000ì› ì…ë‹ˆë‹¤.");
+				System.out.print("ê¸ˆì•¡ ì…ë ¥ > ");
 				int pay = Integer.parseInt(sc.nextLine());
 				if (pay < 1000) {
-					System.out.println("\nÀÔ·ÂµÈ ±İ¾×ÀÌ ³Ê¹« Àû½À´Ï´Ù.\n");
+					System.out.println("\nì…ë ¥ëœ ê¸ˆì•¡ì´ ë„ˆë¬´ ì ìŠµë‹ˆë‹¤.\n");
 					break;
 				}
 				if (pay > 100000) {
-					System.out.println("\nÀÔ·ÂµÈ ±İ¾×ÀÌ ³Ê¹« ¸¹½À´Ï´Ù.\n");
+					System.out.println("\nì…ë ¥ëœ ê¸ˆì•¡ì´ ë„ˆë¬´ ë§ìŠµë‹ˆë‹¤.\n");
 					break;
 				}
 				int cnt = pay / 1000;
 				int result = pay % 1000;
-				System.out.println("¹ŞÀº ±İ¾× : " + pay + "¿ø, °Å½º¸§µ· : " + result + "¿ø");
+				System.out.println("ë°›ì€ ê¸ˆì•¡ : " + pay + "ì›, ê±°ìŠ¤ë¦„ëˆ : " + result + "ì›");
 				
 				new LottoTest().buyLotto(cnt);
 				System.out.println();
 				break;
 			case 2: 
-				System.out.println("°¨»çÇÕ´Ï´Ù.");
+				System.out.println("ê°ì‚¬í•©ë‹ˆë‹¤.");
 				System.exit(0);
 			}
 		}
@@ -60,7 +60,7 @@ public class LottoTest {
 			}
 			Collections.sort(newLotto);
 			count++;
-			System.out.println("·Î¶Ç¹øÈ£" + count + " : " + newLotto);
+			System.out.println("ë¡œë˜ë²ˆí˜¸" + count + " : " + newLotto);
 		}
 		
 	}
