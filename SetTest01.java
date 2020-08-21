@@ -1,4 +1,4 @@
-package kr.or.ddit.basic;
+ï»¿package kr.or.ddit.basic;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,18 +7,18 @@ import java.util.Iterator;
 
 public class SetTest01 {
 	/*
-		SetÀÇ Æ¯Â¡(List¿Í ºñ±³)
+		Setì˜ íŠ¹ì§•(Listì™€ ë¹„êµ)
 		1. List
-			- µ¥ÀÌÅÍÀÇ ¼ø¼­(index)°¡ ÀÖ´Ù.
-			- Áßº¹µÇ´Â µ¥ÀÌÅÍ¸¦ ÀúÀåÇÒ ¼ö ÀÖ´Ù.
+			- ë°ì´í„°ì˜ ìˆœì„œ(index)ê°€ ìˆë‹¤.
+			- ì¤‘ë³µë˜ëŠ” ë°ì´í„°ë¥¼ ì €ì¥í•  ìˆ˜ ìˆë‹¤.
 		2. Set
-			- µ¥ÀÌÅÍÀÇ ¼ø¼­(index)°¡ ¾ø´Ù.
-			- Áßº¹µÇ´Â µ¥ÀÌÅÍ¸¦ ÀúÀåÇÒ ¼ö ¾ø´Ù.
+			- ë°ì´í„°ì˜ ìˆœì„œ(index)ê°€ ì—†ë‹¤.
+			- ì¤‘ë³µë˜ëŠ” ë°ì´í„°ë¥¼ ì €ì¥í•  ìˆ˜ ì—†ë‹¤.
 	*/	
 	public static void main(String[] args) {
 		HashSet hs1 = new HashSet<>();
 		
-		// µ¥ÀÌÅÍ Ãß°¡ : add()¸Ş¼­µå ÀÌ¿ë
+		// ë°ì´í„° ì¶”ê°€ : add()ë©”ì„œë“œ ì´ìš©
 		hs1.add("DD");
 		hs1.add("AA");
 		hs1.add(2);
@@ -27,30 +27,30 @@ public class SetTest01 {
 		hs1.add(1);
 		hs1.add(3);
 		
-		System.out.println("SetÀÇ °³¼ö : " + hs1.size());
-		System.out.println("Set µ¥ÀÌÅÍ : " + hs1);
+		System.out.println("Setì˜ ê°œìˆ˜ : " + hs1.size());
+		System.out.println("Set ë°ì´í„° : " + hs1);
 		
-		// Set¿¡ Áßº¹µÇ´Â µ¥ÀÌÅÍ¸¦ Ãß°¡ÇÏ¸é false¸¦ ¹İÈ¯ÇÏ°í µ¥ÀÌÅÍ´Â Ãß°¡µÇÁö ¾Ê´Â´Ù.
+		// Setì— ì¤‘ë³µë˜ëŠ” ë°ì´í„°ë¥¼ ì¶”ê°€í•˜ë©´ falseë¥¼ ë°˜í™˜í•˜ê³  ë°ì´í„°ëŠ” ì¶”ê°€ë˜ì§€ ì•ŠëŠ”ë‹¤.
 		boolean isAdd = hs1.add("FF");
 		boolean isAdd2 = hs1.add("FF");
-		System.out.println("Áßº¹µÇÁö ¾ÊÀ» ¶§ : " + isAdd);
-		System.out.println("Set µ¥ÀÌÅÍ : " + hs1);
-		System.out.println("Áßº¹µÉ ¶§ " + isAdd2);
-		System.out.println("Set µ¥ÀÌÅÍ : " + hs1);
+		System.out.println("ì¤‘ë³µë˜ì§€ ì•Šì„ ë•Œ : " + isAdd);
+		System.out.println("Set ë°ì´í„° : " + hs1);
+		System.out.println("ì¤‘ë³µë  ë•Œ " + isAdd2);
+		System.out.println("Set ë°ì´í„° : " + hs1);
 		
-		// SetÀÇ µ¥ÀÌÅÍ¸¦ ¼öÁ¤ÇÏ·Á¸é ¼öÁ¤ÇÏ´Â ¸í·ÉÀÌ µû·Î ¾ø±â ¶§¹®¿¡
-		// ÇØ´ç ÀÚ·á¸¦ »èÁ¦ÇÑ ÈÄ Ãß°¡ÇÏ´Â ¹æ¹ıÀ» »ç¿ëÇÑ´Ù.
-		// »èÁ¦ÇÏ±â : remove(»èÁ¦ÇÒ ÀÚ·á) => ¹İÈ¯°ª : »èÁ¦¼º°ø(true), »èÁ¦½ÇÆĞ(false)
-		//		   clear() => ÀüÃ¼»èÁ¦
+		// Setì˜ ë°ì´í„°ë¥¼ ìˆ˜ì •í•˜ë ¤ë©´ ìˆ˜ì •í•˜ëŠ” ëª…ë ¹ì´ ë”°ë¡œ ì—†ê¸° ë•Œë¬¸ì—
+		// í•´ë‹¹ ìë£Œë¥¼ ì‚­ì œí•œ í›„ ì¶”ê°€í•˜ëŠ” ë°©ë²•ì„ ì‚¬ìš©í•œë‹¤.
+		// ì‚­ì œí•˜ê¸° : remove(ì‚­ì œí•  ìë£Œ) => ë°˜í™˜ê°’ : ì‚­ì œì„±ê³µ(true), ì‚­ì œì‹¤íŒ¨(false)
+		//		   clear() => ì „ì²´ì‚­ì œ
 		
-		// "FF"¹®ÀÚ¿­À» "EE"¹®ÀÚ¿­·Î º¯°æÇÏ±â
+		// "FF"ë¬¸ìì—´ì„ "EE"ë¬¸ìì—´ë¡œ ë³€ê²½í•˜ê¸°
 		hs1.remove("FF");
-		System.out.println("»èÁ¦ ÈÄ Set : " + hs1);
+		System.out.println("ì‚­ì œ í›„ Set : " + hs1);
 		hs1.add("EE");
-		System.out.println("Set µ¥ÀÌÅÍ : " + hs1);
+		System.out.println("Set ë°ì´í„° : " + hs1);
 		
 //		hs1.clear();
-//		System.out.println("Clear ÈÄ Set : " + hs1);
+//		System.out.println("Clear í›„ Set : " + hs1);
 		
 		HashSet<Integer> intSet = new HashSet<>();
 		intSet.add(10);
@@ -59,32 +59,32 @@ public class SetTest01 {
 		intSet.add(3);
 		intSet.add(5);
 		
-		// SetÀÇ ¸ğµç µ¥ÀÌÅÍÀÇ ÇÕ°è ±¸ÇÏ±â
+		// Setì˜ ëª¨ë“  ë°ì´í„°ì˜ í•©ê³„ êµ¬í•˜ê¸°
 		/*
-			SetÀÇ µ¥ÀÌÅÍ´Â ¼ø¼­(index)°¡ ¾ø±â ¶§¹®¿¡ ListÃ³·³ index·Î µ¥ÀÌÅÍ¸¦ ÇÏ³ª¾¿ ºÒ·¯¿Ã ¼ö ¾ø´Ù.
-			±×·¡¼­ µ¥ÀÌÅÍ¸¦ ÇÏ³ª¾¿ ¾ò±â À§ÇØ¼­´Â IteratorÇü °´Ã¼·Î º¯È¯ÇØ¼­ »ç¿ëÇØ¾ß ÇÑ´Ù.
+			Setì˜ ë°ì´í„°ëŠ” ìˆœì„œ(index)ê°€ ì—†ê¸° ë•Œë¬¸ì— Listì²˜ëŸ¼ indexë¡œ ë°ì´í„°ë¥¼ í•˜ë‚˜ì”© ë¶ˆëŸ¬ì˜¬ ìˆ˜ ì—†ë‹¤.
+			ê·¸ë˜ì„œ ë°ì´í„°ë¥¼ í•˜ë‚˜ì”© ì–»ê¸° ìœ„í•´ì„œëŠ” Iteratorí˜• ê°ì²´ë¡œ ë³€í™˜í•´ì„œ ì‚¬ìš©í•´ì•¼ í•œë‹¤.
 			
-			- SetÇüÀÇ µ¥ÀÌÅÍ¸¦ IteratorÇü °´Ã¼·Î º¯È¯ÇØ ÁÖ´Â ¸Ş¼­µå => iterator()
+			- Setí˜•ì˜ ë°ì´í„°ë¥¼ Iteratorí˜• ê°ì²´ë¡œ ë³€í™˜í•´ ì£¼ëŠ” ë©”ì„œë“œ => iterator()
 		*/
 		
-		Iterator<Integer> it = intSet.iterator();	// Setµ¥ÀÌÅÍ¸¦ Iterator·Î º¯È¯ÇÏ±â
+		Iterator<Integer> it = intSet.iterator();	// Setë°ì´í„°ë¥¼ Iteratorë¡œ ë³€í™˜í•˜ê¸°
 		
-		// IteratorÀÇ hasNext() ¸Ş¼­µå => IteratorÀÇ µ¥ÀÌÅÍ¸¦ °¡¸®Å°´Â Æ÷ÀÎÅÍ¸¦ ´ÙÀ½¹øÂ°ÀÇ µ¥ÀÌÅÍ À§Ä¡·Î ÀÌµ¿½ÃÅ² ÈÄ ±× ÀÚ¸®¿¡ µ¥ÀÌÅÍ°¡ ÀÖÀ¸¸é true, ¾øÀ¸¸é false
+		// Iteratorì˜ hasNext() ë©”ì„œë“œ => Iteratorì˜ ë°ì´í„°ë¥¼ ê°€ë¦¬í‚¤ëŠ” í¬ì¸í„°ë¥¼ ë‹¤ìŒë²ˆì§¸ì˜ ë°ì´í„° ìœ„ì¹˜ë¡œ ì´ë™ì‹œí‚¨ í›„ ê·¸ ìë¦¬ì— ë°ì´í„°ê°€ ìˆìœ¼ë©´ true, ì—†ìœ¼ë©´ false
 		
 		int sum = 0;
 		while(it.hasNext()) {
-			// IteratorÀÇ next() ¸Ş¼­µå => Æ÷ÀÎÅÍ¸¦ ´ÙÀ½¹øÂ° À§Ä¡·Î ÀÌµ¿ÇÑ ÈÄ ±× ÀÚ¸®ÀÇ µ¥ÀÌÅÍ¸¦ ¹İÈ¯ÇÑ´Ù.
+			// Iteratorì˜ next() ë©”ì„œë“œ => í¬ì¸í„°ë¥¼ ë‹¤ìŒë²ˆì§¸ ìœ„ì¹˜ë¡œ ì´ë™í•œ í›„ ê·¸ ìë¦¬ì˜ ë°ì´í„°ë¥¼ ë°˜í™˜í•œë‹¤.
 			int num = it.next();
 			sum += num;
 		}
-		System.out.println("ÃÑÇÕ : " + sum);
+		System.out.println("ì´í•© : " + sum);
 		
-		// ¿ì¸®¹İ ÇĞ»ıµé Áß ¹øÈ£¸¦ ÀÌ¿ëÇÏ¿© ÃßÃ·ÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇØ º¸ÀÚ
-		// ¹øÈ£´Â 1¹øºÎÅÍ 25¹ø±îÁö ÀÖ°í, ÃßÃ·ÇÒ ÀÎ¿øÀº 3¸íÀÌ´Ù.
-		// ´çÃ·ÀÚ¸¦ Ãâ·ÂÇØ º¸ÀÚ.
+		// ìš°ë¦¬ë°˜ í•™ìƒë“¤ ì¤‘ ë²ˆí˜¸ë¥¼ ì´ìš©í•˜ì—¬ ì¶”ì²¨í•˜ëŠ” í”„ë¡œê·¸ë¨ì„ ì‘ì„±í•´ ë³´ì
+		// ë²ˆí˜¸ëŠ” 1ë²ˆë¶€í„° 25ë²ˆê¹Œì§€ ìˆê³ , ì¶”ì²¨í•  ì¸ì›ì€ 3ëª…ì´ë‹¤.
+		// ë‹¹ì²¨ìë¥¼ ì¶œë ¥í•´ ë³´ì.
 		int[] numArr = new int[3];
 		for (int i = 0; i < numArr.length; i++) {
-			numArr[i] = (int)(Math.random()*25)+1;	//(ÃÖ´ë°ª-ÃÖ¼Ò°ª+1) + ÃÖ¼Ò°ª
+			numArr[i] = (int)(Math.random()*25)+1;	//(ìµœëŒ€ê°’-ìµœì†Œê°’+1) + ìµœì†Œê°’
 			for (int j = 0; j < i; j++) {
 				if (numArr[i] == numArr[j]) {
 					i--;
@@ -99,11 +99,11 @@ public class SetTest01 {
 		while(numSet.size() < 3) {
 			numSet.add((int)(Math.random() * 25 + 1));
 		}
-		System.out.println("´çÃ·ÀÚ ¹øÈ£ : " + numSet);
+		System.out.println("ë‹¹ì²¨ì ë²ˆí˜¸ : " + numSet);
 		
-		// SetÀ¯ÇüÀÇ ÀÚ·á¸¦ ListÇüÀ¸·Î º¯È¯ÇÏ±â
+		// Setìœ í˜•ì˜ ìë£Œë¥¼ Listí˜•ìœ¼ë¡œ ë³€í™˜í•˜ê¸°
 		ArrayList<Integer> testList = new ArrayList<>(numSet);
-		System.out.println("List µ¥ÀÌÅÍ Ãâ·Â");
+		System.out.println("List ë°ì´í„° ì¶œë ¥");
 		for(int test : testList) {
 			System.out.println(test);
 		}
