@@ -1,4 +1,4 @@
-package kr.or.ddit.basic;
+ï»¿package kr.or.ddit.basic;
 
 import java.util.LinkedList;
 
@@ -6,74 +6,74 @@ public class StackTest {
 	public static void main(String[] args) {
 		Browser b = new Browser();
 		
-		b.goURL("1.³×ÀÌ¹ö");
-		b.goURL("2.±¸±Û");
-		b.goURL("3.´ÙÀ½");
-		b.goURL("4.¾ßÈÄ");
+		b.goURL("1.ë„¤ì´ë²„");
+		b.goURL("2.êµ¬ê¸€");
+		b.goURL("3.ë‹¤ìŒ");
+		b.goURL("4.ì•¼í›„");
 		
 		b.history();
-		System.out.println("µÚ·Î°¡±â");
+		System.out.println("ë’¤ë¡œê°€ê¸°");
 		b.goBack();
 		b.history();
 		
-		System.out.println("µÚ·Î°¡±â");
+		System.out.println("ë’¤ë¡œê°€ê¸°");
 		b.goBack();
 		b.history();
 		
-		System.out.println("¾ÕÀ¸·Î°¡±â");
+		System.out.println("ì•ìœ¼ë¡œê°€ê¸°");
 		b.goForward();
 		b.history();
 		
-		System.out.println("»õ·Î¿î »çÀÌÆ® Á¢¼Ó");
-		b.goURL("5.³×ÀÌÆ®");
+		System.out.println("ìƒˆë¡œìš´ ì‚¬ì´íŠ¸ ì ‘ì†");
+		b.goURL("5.ë„¤ì´íŠ¸");
 		b.history();
 	}
 }
 
 class Browser {
-	private LinkedList<String> back;		// ÀÌÀü ¹æ¹®³»¿ªÀÌ ÀúÀåµÉ ½ºÅÃ º¯¼ö
-	private LinkedList<String> forward; 	// ´ÙÀ½ ¹æ¹®³»¿ªÀÌ ÀúÀåµÉ ½ºÅÃ º¯¼ö
-	private String currentURL;				// ÇöÀç ÆäÀÌÁö
+	private LinkedList<String> back;		// ì´ì „ ë°©ë¬¸ë‚´ì—­ì´ ì €ì¥ë  ìŠ¤íƒ ë³€ìˆ˜
+	private LinkedList<String> forward; 	// ë‹¤ìŒ ë°©ë¬¸ë‚´ì—­ì´ ì €ì¥ë  ìŠ¤íƒ ë³€ìˆ˜
+	private String currentURL;				// í˜„ì¬ í˜ì´ì§€
 	
-	// »ı¼ºÀÚ
+	// ìƒì„±ì
 	public Browser() {
 		back = new LinkedList<>();
 		forward = new LinkedList<>();
 		currentURL = "";
 	}
 	
-	// »çÀÌÆ®¸¦ ¹æ¹®ÇÏ´Â ¸Ş¼­µå, ¸Å°³º¯¼ö¿¡ ¹æ¹®ÇÒ URL ÀÔ·Â
+	// ì‚¬ì´íŠ¸ë¥¼ ë°©ë¬¸í•˜ëŠ” ë©”ì„œë“œ, ë§¤ê°œë³€ìˆ˜ì— ë°©ë¬¸í•  URL ì…ë ¥
 	public void goURL(String url) {
 		if (currentURL != null && !"".equals(currentURL)) {
-			back.push(currentURL); // ÇöÀç ÆäÀÌÁö¸¦ back stackº¯¼ö¿¡ Ãß°¡ÇÑ´Ù.
+			back.push(currentURL); // í˜„ì¬ í˜ì´ì§€ë¥¼ back stackë³€ìˆ˜ì— ì¶”ê°€í•œë‹¤.
 		}
-		currentURL = url; // »õ·Î¿î ÇöÀç ÆäÀÌÁö·Î º¯°æÇÑ´Ù.
+		currentURL = url; // ìƒˆë¡œìš´ í˜„ì¬ í˜ì´ì§€ë¡œ ë³€ê²½í•œë‹¤.
 		
 	}
 	
-	//µÚ·Î °¡±â
+	//ë’¤ë¡œ ê°€ê¸°
 	public void goBack() {
 		if (!back.isEmpty()) {
-			forward.push(currentURL);	// ÇöÀç ÆäÀÌÁö¸¦ forward ½ºÅÃ¿¡ Ãß°¡ÇÑ´Ù.
-			currentURL = back.pop();	// back ½ºÅÃ¿¡¼­ 1°³ÀÇ µ¥ÀÌÅÍ¸¦ ²¨³»¿Í ÇöÀç ÆäÀÌÁö·Î ¼³Á¤ÇÑ´Ù.
+			forward.push(currentURL);	// í˜„ì¬ í˜ì´ì§€ë¥¼ forward ìŠ¤íƒì— ì¶”ê°€í•œë‹¤.
+			currentURL = back.pop();	// back ìŠ¤íƒì—ì„œ 1ê°œì˜ ë°ì´í„°ë¥¼ êº¼ë‚´ì™€ í˜„ì¬ í˜ì´ì§€ë¡œ ì„¤ì •í•œë‹¤.
 		}
 	}
 	
-	//¾ÕÀ¸·Î °¡±â
+	//ì•ìœ¼ë¡œ ê°€ê¸°
 	public void goForward() {
 		if (!forward.isEmpty()) {
-			back.push(currentURL);		// ÇöÀç ÆäÀÌÁö¸¦ back ½ºÅÃ¿¡ Ãß°¡ÇÑ´Ù.
-			currentURL = forward.pop();	// forward ½ºÅÃ¿¡¼­ 1°³ÀÇ µ¥ÀÌÅÍ¸¦ ²¨³»¿Í ÇöÀç ÆäÀÌÁö·Î ¼³Á¤ÇÑ´Ù.
+			back.push(currentURL);		// í˜„ì¬ í˜ì´ì§€ë¥¼ back ìŠ¤íƒì— ì¶”ê°€í•œë‹¤.
+			currentURL = forward.pop();	// forward ìŠ¤íƒì—ì„œ 1ê°œì˜ ë°ì´í„°ë¥¼ êº¼ë‚´ì™€ í˜„ì¬ í˜ì´ì§€ë¡œ ì„¤ì •í•œë‹¤.
 		}
 	}
 	
-	// ¹æ¹® ±â·ÏÀ» È®ÀÎ
+	// ë°©ë¬¸ ê¸°ë¡ì„ í™•ì¸
 	public void history() {
 		System.out.println("------------------------------------");
-		System.out.println("          ¹æ       ¹®      ±â     ·Ï");
+		System.out.println("          ë°©       ë¬¸      ê¸°     ë¡");
 		System.out.println("------------------------------------");
 		System.out.println("    back : " + back);
-		System.out.println("       ÇöÀç : " + currentURL);
+		System.out.println("       í˜„ì¬ : " + currentURL);
 		System.out.println(" forward : " + forward);
 		System.out.println("------------------------------------");
 	}

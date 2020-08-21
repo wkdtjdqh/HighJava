@@ -1,73 +1,73 @@
-package kr.or.ddit.basic;
+ï»¿package kr.or.ddit.basic;
 
 import java.util.LinkedList;
 
 public class StackQueueTest {
 	/* 
-	 * Stack ==> LIFO ÈÄÀÔ¼±Ãâ¹æ½ÄÀÇ ÀÚ·á±¸Á¶
-	 * Queue ==> FIFO ¼±ÀÔ¼±Ãâ¹æ½ÄÀÇ ÀÚ·á±¸Á¶
+	 * Stack ==> LIFO í›„ì…ì„ ì¶œë°©ì‹ì˜ ìë£Œêµ¬ì¡°
+	 * Queue ==> FIFO ì„ ì…ì„ ì¶œë°©ì‹ì˜ ìë£Œêµ¬ì¡°
 	 * 
-	 * Stack°ú Queue´Â LinkedList¸¦ ÀÌ¿ëÇÏ¿© »ç¿ëÇÒ ¼ö ÀÖ´Ù.
-	 * LinkedListÀÇ ±¸Á¶´Â µ¥ÀÌÅÍ³¢¸® ¶³¾îÁ®ÀÖÀ¸¸ç µ¥ÀÌÅÍ¿Í ´ÙÀ½ µ¥ÀÌÅÍÀÇ ÂüÁ¶ÁÖ¼Ò¸¦ °®´Â´Ù.
+	 * Stackê³¼ QueueëŠ” LinkedListë¥¼ ì´ìš©í•˜ì—¬ ì‚¬ìš©í•  ìˆ˜ ìˆë‹¤.
+	 * LinkedListì˜ êµ¬ì¡°ëŠ” ë°ì´í„°ë¼ë¦¬ ë–¨ì–´ì ¸ìˆìœ¼ë©° ë°ì´í„°ì™€ ë‹¤ìŒ ë°ì´í„°ì˜ ì°¸ì¡°ì£¼ì†Œë¥¼ ê°–ëŠ”ë‹¤.
 	 */
 	
 	public static void main(String[] args) {
 		/*
-		 * StackÀÇ ¸í·É
-		 * 1. ÀÚ·áÀÔ·Â : push(data);
-		 * 2. ÀÚ·áÃâ·Â : pop(); ==> ÀÚ·á¸¦ ²¨³»¿Â ÈÄ¿¡ ²¨³»¿Â ÀÚ·á¸¦ Stack¿¡¼­ Áö¿î´Ù.
-		 * 			  peek() ==> »èÁ¦¾øÀÌ ÀÚ·á¸¦ ²¨³»¿Â´Ù.
+		 * Stackì˜ ëª…ë ¹
+		 * 1. ìë£Œì…ë ¥ : push(data);
+		 * 2. ìë£Œì¶œë ¥ : pop(); ==> ìë£Œë¥¼ êº¼ë‚´ì˜¨ í›„ì— êº¼ë‚´ì˜¨ ìë£Œë¥¼ Stackì—ì„œ ì§€ìš´ë‹¤.
+		 * 			  peek() ==> ì‚­ì œì—†ì´ ìë£Œë¥¼ êº¼ë‚´ì˜¨ë‹¤.
 		 */
 		LinkedList<String> stack = new LinkedList<>();
 		
-		stack.push("È«±æµ¿");
-		stack.push("ÀÏÁö¸Å");
-		stack.push("º¯ÇĞµµ");
-		stack.push("°­°¨Âù");
+		stack.push("í™ê¸¸ë™");
+		stack.push("ì¼ì§€ë§¤");
+		stack.push("ë³€í•™ë„");
+		stack.push("ê°•ê°ì°¬");
 		
-		System.out.println("ÇöÀç stack °ª : " + stack);
+		System.out.println("í˜„ì¬ stack ê°’ : " + stack);
 		
 		String data = stack.pop();
-		System.out.println("²¨³»¿Â °ª : " + data);
-		System.out.println("²¨³»¿Â °ª : " + stack.pop());
-		System.out.println("ÇöÀç stack °ª : " + stack);
+		System.out.println("êº¼ë‚´ì˜¨ ê°’ : " + data);
+		System.out.println("êº¼ë‚´ì˜¨ ê°’ : " + stack.pop());
+		System.out.println("í˜„ì¬ stack ê°’ : " + stack);
 		
 		String temp = stack.peek();
-		System.out.println("peek·Î ²¨³»¿Â °ª : " + temp);
-		System.out.println("ÇöÀç stack °ª : " + stack);
+		System.out.println("peekë¡œ êº¼ë‚´ì˜¨ ê°’ : " + temp);
+		System.out.println("í˜„ì¬ stack ê°’ : " + stack);
 		
-		stack.push("¼ºÃáÇâ");
-		System.out.println("Ãß°¡ÇÑ ÈÄ stack °ª : " + stack);
-		System.out.println("²¨³»¿Â °ª : " + stack.pop());
+		stack.push("ì„±ì¶˜í–¥");
+		System.out.println("ì¶”ê°€í•œ í›„ stack ê°’ : " + stack);
+		System.out.println("êº¼ë‚´ì˜¨ ê°’ : " + stack.pop());
 		System.out.println("-------------------------------------");
 		/*
-		 * QueueÀÇ ¸í·É
-		 * 1. ÀÚ·áÀÔ·Â : offer(data)
-		 * 2. ÀÚ·áÃâ·Â : poll() ==> ÀÚ·á¸¦ ²¨³»¿À°í ²¨³»¿Â ÀÚ·á¸¦ Queue¿¡¼­ »èÁ¦µÈ´Ù.
-		 * 			  peek() ==> »èÁ¦¾øÀÌ ÀÚ·á¸¦ ²¨³»¿Â´Ù.
+		 * Queueì˜ ëª…ë ¹
+		 * 1. ìë£Œì…ë ¥ : offer(data)
+		 * 2. ìë£Œì¶œë ¥ : poll() ==> ìë£Œë¥¼ êº¼ë‚´ì˜¤ê³  êº¼ë‚´ì˜¨ ìë£Œë¥¼ Queueì—ì„œ ì‚­ì œëœë‹¤.
+		 * 			  peek() ==> ì‚­ì œì—†ì´ ìë£Œë¥¼ êº¼ë‚´ì˜¨ë‹¤.
 		 */
 		LinkedList<String> queue = new LinkedList<>();
 		
-		queue.offer("È«±æµ¿");
-		queue.offer("ÀÏÁö¸Å");
-		queue.offer("º¯ÇĞµµ");
-		queue.offer("°­°¨Âù");
+		queue.offer("í™ê¸¸ë™");
+		queue.offer("ì¼ì§€ë§¤");
+		queue.offer("ë³€í•™ë„");
+		queue.offer("ê°•ê°ì°¬");
 		
-		System.out.println("ÇöÀç queue °ª : " + queue);
+		System.out.println("í˜„ì¬ queue ê°’ : " + queue);
 		
 		data = queue.poll();
-		System.out.println("²¨³»¿Â °ª : " + data);
-		System.out.println("²¨³»¿Â °ª : " + queue.poll());
-		System.out.println("ÇöÀç queue °ª : " + queue);
+		System.out.println("êº¼ë‚´ì˜¨ ê°’ : " + data);
+		System.out.println("êº¼ë‚´ì˜¨ ê°’ : " + queue.poll());
+		System.out.println("í˜„ì¬ queue ê°’ : " + queue);
 		
-		queue.offer("¼ºÃáÇâ");
-		System.out.println("ÇöÀç queue °ª : " + queue);
+		queue.offer("ì„±ì¶˜í–¥");
+		System.out.println("í˜„ì¬ queue ê°’ : " + queue);
 		
-		System.out.println("²¨³»¿Â °ª : " + queue.poll());
-		System.out.println("ÇöÀç queue °ª : " + queue);
+		System.out.println("êº¼ë‚´ì˜¨ ê°’ : " + queue.poll());
+		System.out.println("í˜„ì¬ queue ê°’ : " + queue);
 
-		System.out.println("»èÁ¦¾øÀÌ ²¨³»¿À±â : " + queue.peek());
-		System.out.println("ÇöÀç queue °ª : " + queue);
+		System.out.println("ì‚­ì œì—†ì´ êº¼ë‚´ì˜¤ê¸° : " + queue.peek());
+		System.out.println("í˜„ì¬ queue ê°’ : " + queue);
 		
 		
 	}
