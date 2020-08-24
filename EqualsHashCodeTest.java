@@ -1,4 +1,4 @@
-package kr.or.ddit.basic;
+ï»¿package kr.or.ddit.basic;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -7,35 +7,35 @@ public class EqualsHashCodeTest {
 	public static void main(String[] args) {
 		Person p1 = new Person();
 		p1.setId(1);
-		p1.setName("È«±æµ¿");
+		p1.setName("í™ê¸¸ë™");
 		
 		Person p2 = new Person();
 //		p2.setId(2);
-//		p2.setName("ÀÌ¼ø½Å");
+//		p2.setName("ì´ìˆœì‹ ");
 		p2.setId(1);
-		p2.setName("È«±æµ¿");
+		p2.setName("í™ê¸¸ë™");
 		
-		System.out.println(p1.equals(p2));	// ±âº»ÀûÀ¸·Î Object¸¦ »ó¼Ó¹Ş°í ÀÖ¾î ObjectÀÇ equals¸¦ ºÒ·¯¿Ã ¼ö ÀÖ°í, ObjectÀÇ equals´Â ==À¸·Î ºñ±³ÇÏ°Ô µÇ¾îÀÖ´Ù.
-										    // Á¦´ë·ÎµÈ equals¸¦ »ç¿ëÇÏ±â À§ÇØ¼­´Â ÀçÁ¤ÀÇ°¡ ÇÊ¿äÇÏ´Ù.
+		System.out.println(p1.equals(p2));	// ê¸°ë³¸ì ìœ¼ë¡œ Objectë¥¼ ìƒì†ë°›ê³  ìˆì–´ Objectì˜ equalsë¥¼ ë¶ˆëŸ¬ì˜¬ ìˆ˜ ìˆê³ , Objectì˜ equalsëŠ” ==ìœ¼ë¡œ ë¹„êµí•˜ê²Œ ë˜ì–´ìˆë‹¤.
+										    // ì œëŒ€ë¡œëœ equalsë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•´ì„œëŠ” ì¬ì •ì˜ê°€ í•„ìš”í•˜ë‹¤.
 		
 		System.out.println("----------------------------------");
-		Set<Person> testSet = new HashSet<>();	// HashSetÀº HashCode¸¦ ÀÌ¿ëÇØ¼­ ºñ±³
+		Set<Person> testSet = new HashSet<>();	// HashSetì€ HashCodeë¥¼ ì´ìš©í•´ì„œ ë¹„êµ
 		testSet.add(p1);
 		testSet.add(p2);
-		System.out.println("SetÀÇ Å©±â : " + testSet.size());
+		System.out.println("Setì˜ í¬ê¸° : " + testSet.size());
 		System.out.println(testSet);
 		System.out.println("p1 : " + p1.hashCode());
 		System.out.println("p2 : " + p2.hashCode());
 		System.out.println(p1.equals(p2));
 		
 		/*
-			- equals 		=> µÎ °´Ã¼ÀÇ ³»¿ëÀÌ °°ÀºÁö °Ë»çÇÏ´Â ¿¬»êÀÚ
-			- hashCode() 	=> µÎ °´Ã¼ÀÇ µ¿ÀÏ¼ºÀ» °Ë»çÇÏ´Â ¿¬»êÀÚ
+			- equals 		=> ë‘ ê°ì²´ì˜ ë‚´ìš©ì´ ê°™ì€ì§€ ê²€ì‚¬í•˜ëŠ” ì—°ì‚°ì
+			- hashCode() 	=> ë‘ ê°ì²´ì˜ ë™ì¼ì„±ì„ ê²€ì‚¬í•˜ëŠ” ì—°ì‚°ì
 			
-			- HashSet, HashTable, HashMap°ú °°ÀÌ Hash·Î ½ÃÀÛÇÏ´Â ÄÃ·º¼ÇµéÀº °´Ã¼ÀÇ ÀÇ¹Ì»óÀÇ µ¿ÀÏ¼ºÀ» ºñ±³ÇÏ±â À§ÇØ¼­ hashCode() ¸Ş¼­µå¸¦ È£ÃâÇÏ¿© ºñ±³ÇÑ´Ù.
-			   ±×·Î¹Ç·Î, °´Ã¼°¡ °°ÀºÁö ¿©ºÎ¸¦ °áÁ¤ÇÏ·Á¸é hashCode() ¸Ş¼­µå¸¦ ÀçÁ¤ÀÇ ÇØ¾ßÇÑ´Ù.
+			- HashSet, HashTable, HashMapê³¼ ê°™ì´ Hashë¡œ ì‹œì‘í•˜ëŠ” ì»¬ë ‰ì…˜ë“¤ì€ ê°ì²´ì˜ ì˜ë¯¸ìƒì˜ ë™ì¼ì„±ì„ ë¹„êµí•˜ê¸° ìœ„í•´ì„œ hashCode() ë©”ì„œë“œë¥¼ í˜¸ì¶œí•˜ì—¬ ë¹„êµí•œë‹¤.
+			   ê·¸ë¡œë¯€ë¡œ, ê°ì²´ê°€ ê°™ì€ì§€ ì—¬ë¶€ë¥¼ ê²°ì •í•˜ë ¤ë©´ hashCode() ë©”ì„œë“œë¥¼ ì¬ì •ì˜ í•´ì•¼í•œë‹¤.
 			   
-			- hashCode() ¸Ş¼­µå¿¡¼­ »ç¿ëÇÏ´Â 'ÇØ½Ì ¾Ë°í¸®Áò'Àº ¼­·Î ´Ù¸¥ °´Ã¼µé¿¡ ´ëÇØ¼­ °°Àº hashcode¸¦ ³ªÅ¸³¾ ¼öµµ ÀÖ´Ù.
+			- hashCode() ë©”ì„œë“œì—ì„œ ì‚¬ìš©í•˜ëŠ” 'í•´ì‹± ì•Œê³ ë¦¬ì¦˜'ì€ ì„œë¡œ ë‹¤ë¥¸ ê°ì²´ë“¤ì— ëŒ€í•´ì„œ ê°™ì€ hashcodeë¥¼ ë‚˜íƒ€ë‚¼ ìˆ˜ë„ ìˆë‹¤.
 		*/
 	}
 }
@@ -84,23 +84,23 @@ class Person{
 	}
 	
 	/*
-	// µÎ µ¥ÀÌÅÍ °ªÀÌ °°À¸¸é ÂüÀÌ µÇµµ·Ï ÀçÁ¤ÀÇ
+	// ë‘ ë°ì´í„° ê°’ì´ ê°™ìœ¼ë©´ ì°¸ì´ ë˜ë„ë¡ ì¬ì •ì˜
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == null) return false;
 		
-		// °°Àº À¯ÇüÀÇ Å¬·¡½ºÀÎÁö °Ë»ç
+		// ê°™ì€ ìœ í˜•ì˜ í´ë˜ìŠ¤ì¸ì§€ ê²€ì‚¬
 		if (this.getClass() != obj.getClass()) return false;
 		
-		// ÂüÁ¶°ªÀÌ °°ÀºÁö ºñ±³
+		// ì°¸ì¡°ê°’ì´ ê°™ì€ì§€ ë¹„êµ
 		if (this == obj) return true;
 		
-		// ¸Å°³º¯¼ö¸¦ ÇöÀç °´Ã¼ À¯ÇüÀ¸·Î Çüº¯È¯
+		// ë§¤ê°œë³€ìˆ˜ë¥¼ í˜„ì¬ ê°ì²´ ìœ í˜•ìœ¼ë¡œ í˜•ë³€í™˜
 		Person myPerson = (Person)obj;
 		
 		if (this.name == null && myPerson.getName() != null) return false;
 		
-		// id°¡ °°°í nameÀÌ ¸ğµÎ nullÀÏ °æ¿ì
+		// idê°€ ê°™ê³  nameì´ ëª¨ë‘ nullì¼ ê²½ìš°
 		if (this.id == myPerson.getId() && this.name.equals(myPerson.getName())) return true;
 		if (this.id == myPerson.getId() && this.name == myPerson.getName()) return true;
 		
