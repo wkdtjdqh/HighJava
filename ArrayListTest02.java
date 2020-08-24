@@ -1,18 +1,18 @@
-package kr.or.ddit.basic;
+ï»¿package kr.or.ddit.basic;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/*	¹®Á¦
- *	5¸íÀÇ »ç¶÷ ÀÌ¸§À» ÀÔ·Â¹Ş¾Æ ArrayList¿¡ ÀúÀåÇÑ ÈÄ
- *	ÀÌµé Áß '±è'¾¾ ¼ºÀÇ ÀÌ¸§À» ¸ğµÎ Ãâ·ÂÇÏ½Ã¿À.
- *	´Ü, ÀÔ·ÂÀº Scanner °´Ã¼¸¦ ÀÌ¿ëÇÑ´Ù.
+/*	ë¬¸ì œ
+ *	5ëª…ì˜ ì‚¬ëŒ ì´ë¦„ì„ ì…ë ¥ë°›ì•„ ArrayListì— ì €ì¥í•œ í›„
+ *	ì´ë“¤ ì¤‘ 'ê¹€'ì”¨ ì„±ì˜ ì´ë¦„ì„ ëª¨ë‘ ì¶œë ¥í•˜ì‹œì˜¤.
+ *	ë‹¨, ì…ë ¥ì€ Scanner ê°ì²´ë¥¼ ì´ìš©í•œë‹¤.
  */
 public class ArrayListTest02 {
 	public static void main(String[] args) {
 		ArrayList<String> names = new ArrayList<>();
 		Scanner sc = new Scanner(System.in);
-		System.out.println("5¸íÀÇ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä.");
+		System.out.println("5ëª…ì˜ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”.");
 		int count = 1;
 		while(count <= 5) {
 			names.add(sc.nextLine());
@@ -20,17 +20,17 @@ public class ArrayListTest02 {
 		}
 		for(String name : names) {
 			char eq = name.charAt(0);
-			if (eq == '±è') {
+			if (eq == 'ê¹€') {
 				System.out.print(name + "\t");
 			}
 		}
 		/*for(String name : names) {
-			if (name.indexOf("±è") == 0) {
+			if (name.indexOf("ê¹€") == 0) {
 				System.out.print(name + "\t");
 			}
 		}
 		for(String name : names) {
-			if (name.startsWith("±è")) {
+			if (name.startsWith("ê¹€")) {
 				System.out.print(name + "\t");
 			}
 		}*/

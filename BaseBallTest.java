@@ -1,4 +1,4 @@
-package kr.or.ddit.basic;
+ï»¿package kr.or.ddit.basic;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,9 +6,9 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Scanner;
 
-/*	¹®Á¦)
-	SetÀ» ÀÌ¿ëÇÏ¿© ¼ıÀÚ ¾ß±¸ °ÔÀÓ ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À.
-	¸®½ºÆ®¿¡ ³Ö¾î¼­ ¼¯¾î¶ó.
+/*	ë¬¸ì œ)
+	Setì„ ì´ìš©í•˜ì—¬ ìˆ«ì ì•¼êµ¬ ê²Œì„ í”„ë¡œê·¸ë¨ì„ ì‘ì„±í•˜ì‹œì˜¤.
+	ë¦¬ìŠ¤íŠ¸ì— ë„£ì–´ì„œ ì„ì–´ë¼.
 */
 public class BaseBallTest {
 	public static void main(String[] args) {
@@ -29,13 +29,13 @@ public class BaseBallTest {
 		
 		while(true) {
 			int S = 0, B = 0;
-			System.out.println("¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+			System.out.println("ìˆ«ìë¥¼ ì…ë ¥í•˜ì„¸ìš”");
 			String inputNum = sc.nextLine();
 			ArrayList<Integer> ballNum = new ArrayList<>();
 			ballNum.add(Integer.parseInt(inputNum.substring(0, 1)));
 			ballNum.add(Integer.parseInt(inputNum.substring(1, 2)));
 			ballNum.add(Integer.parseInt(inputNum.substring(2, 3)));
-			System.out.println("¼±ÅÃÇÑ ¹øÈ£ : " + ballNum);
+			System.out.println("ì„ íƒí•œ ë²ˆí˜¸ : " + ballNum);
 			
 			for (int i = 0; i < BaseBallList.size(); i++) {
 				int count = 0;
@@ -51,9 +51,9 @@ public class BaseBallTest {
 					}
 				}
 			}
-			System.out.println("°á°ú : " + S + "S " + B + "B");
+			System.out.println("ê²°ê³¼ : " + S + "S " + B + "B");
 			if (S == 3) {
-				System.out.println("¸ÂÃè½À´Ï´Ù.");
+				System.out.println("ë§ì·„ìŠµë‹ˆë‹¤.");
 				break;
 			}
 		}

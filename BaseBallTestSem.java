@@ -1,4 +1,4 @@
-package kr.or.ddit.basic;
+ï»¿package kr.or.ddit.basic;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,9 +14,9 @@ public class BaseBallTestSem {
 	
 	Scanner scan = new Scanner(System.in);
 	
-	// °ÔÀÓ½ÃÀÛ ¸Ş¼­µå
+	// ê²Œì„ì‹œì‘ ë©”ì„œë“œ
 	public void gameStart() {
-		System.out.println("¼ıÀÚ ¾ß±¸ °ÔÀÓÀ» ½ÃÀÛÇÕ´Ï´Ù.");
+		System.out.println("ìˆ«ì ì•¼êµ¬ ê²Œì„ì„ ì‹œì‘í•©ë‹ˆë‹¤.");
 		getNum();
 		int cnt = 0;
 		
@@ -26,36 +26,36 @@ public class BaseBallTestSem {
 			ballCount();
 		} while (strike != 3);
 		System.out.println();
-		System.out.println("ÃàÇÏÇÕ´Ï´Ù.\n´ç½ÅÀº " + cnt + "¹ø ¸¸¿¡ ¼º°øÇÏ¼Ì½À´Ï´Ù.");
+		System.out.println("ì¶•í•˜í•©ë‹ˆë‹¤.\në‹¹ì‹ ì€ " + cnt + "ë²ˆ ë§Œì— ì„±ê³µí•˜ì…¨ìŠµë‹ˆë‹¤.");
 	}
 	
-	// 1-9»çÀÌÀÇ ¼­·Î ´Ù¸¥ ³­¼ö 3°³¸¦ ¸¸µé¾î¼­ ¸®½ºÆ®¿¡ ÀúÀåÇÏ´Â ¸Ş¼­µå
+	// 1-9ì‚¬ì´ì˜ ì„œë¡œ ë‹¤ë¥¸ ë‚œìˆ˜ 3ê°œë¥¼ ë§Œë“¤ì–´ì„œ ë¦¬ìŠ¤íŠ¸ì— ì €ì¥í•˜ëŠ” ë©”ì„œë“œ
 	public void getNum() {
 		Set<Integer> numSet = new HashSet<>();
 		
-		// 1-9»çÀÌÀÇ ³­¼ö 3°³¸¦ Set¿¡ ÀúÀå
+		// 1-9ì‚¬ì´ì˜ ë‚œìˆ˜ 3ê°œë¥¼ Setì— ì €ì¥
 		while(numSet.size() < 3) {
 			numSet.add((int)(Math.random() * 9)+1);
 		}
 		
-		// ¸¸µé¾îÁø ³­¼ö¸¦ List¿¡ ÀúÀåÇÏ±â
+		// ë§Œë“¤ì–´ì§„ ë‚œìˆ˜ë¥¼ Listì— ì €ì¥í•˜ê¸°
 		numList = new ArrayList<>(numSet);
 		Collections.shuffle(numList);
 		
 	}
 	
-	// »ç¿ëÀÚ ÀÔ·Â
+	// ì‚¬ìš©ì ì…ë ¥
 	public void inputNum() {
 		int n1, n2, n3;
 		
 		do {
-			System.out.print("¼ıÀÚÀÔ·Â>>");
+			System.out.print("ìˆ«ìì…ë ¥>>");
 			n1 = scan.nextInt();
 			n2 = scan.nextInt();
 			n3 = scan.nextInt();
 			
 			if (n1 == n2 || n2 == n3 || n1 == n3) {
-				System.out.println("Áßº¹µÇ´Â ¼ıÀÚ´Â ÀÔ·ÂÇÒ ¼ö ¾ø½À´Ï´Ù. \n´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä.");
+				System.out.println("ì¤‘ë³µë˜ëŠ” ìˆ«ìëŠ” ì…ë ¥í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤. \në‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”.");
 			}
 		} while(n1 == n2 || n2 == n3 || n1 == n3);
 		userList.add(n1);

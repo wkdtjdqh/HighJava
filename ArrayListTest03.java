@@ -1,12 +1,12 @@
-package kr.or.ddit.basic;
+ï»¿package kr.or.ddit.basic;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 /*	
-  	¹®Á¦1]
-	5¸íÀÇ º°¸íÀ» ÀÔ·Â¹Ş¾Æ ArrayList¿¡ ÀúÀåÇÑ ÈÄ ÀÌµé Áß º°¸íÀÇ ±æÀÌ°¡ Á¦ÀÏ ±ä º°¸íÀ» Ãâ·ÂÇÏ½Ã¿À.
-	´Ü, ÀÔ·ÂÇÑ °¢°¢ÀÇ º°¸íÀÇ ±æÀÌ´Â ¸ğµÎ ´Ù¸£´Ù.
+  	ë¬¸ì œ1]
+	5ëª…ì˜ ë³„ëª…ì„ ì…ë ¥ë°›ì•„ ArrayListì— ì €ì¥í•œ í›„ ì´ë“¤ ì¤‘ ë³„ëª…ì˜ ê¸¸ì´ê°€ ì œì¼ ê¸´ ë³„ëª…ì„ ì¶œë ¥í•˜ì‹œì˜¤.
+	ë‹¨, ì…ë ¥í•œ ê°ê°ì˜ ë³„ëª…ì˜ ê¸¸ì´ëŠ” ëª¨ë‘ ë‹¤ë¥´ë‹¤.
 	
 */
 public class ArrayListTest03 {
@@ -14,7 +14,7 @@ public class ArrayListTest03 {
 		Scanner sc = new Scanner(System.in);
 		ArrayList<String> names = new ArrayList<>();
 		for (int i = 0; i < 5; i++) {
-			System.out.print(i+1 + "¹øÂ° º°¸í > ");
+			System.out.print(i+1 + "ë²ˆì§¸ ë³„ëª… > ");
 			names.add(sc.nextLine());
 		}
 
