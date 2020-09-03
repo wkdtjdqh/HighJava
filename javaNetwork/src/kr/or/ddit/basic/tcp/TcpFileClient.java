@@ -9,6 +9,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
+import javax.swing.JFileChooser;
+import javax.swing.JPanel;
+
 public class TcpFileClient {
 	private Socket socket;
 	private BufferedOutputStream bos;	// 소켓 전송용, 바이트 기반을 전송할 때
@@ -16,12 +19,29 @@ public class TcpFileClient {
 	private DataOutputStream dos;		// 문자 전송용
 	
 	public void clientStart(){
+		/*
 		// 전송할 파일을 이용한 File객체 생성
 		String path = "d:/d_other/고양이.jpg";
 		File file = new File(path);
 		String fileName = file.getName();	// 파일 이름 구하기
 		if (!file.exists()) {	// 전송할 파일이 있는지 검사
 			System.out.println(fileName + " 파일이 없습니다.");
+			return;
+		}
+		*/
+		
+		JFileChooser filechooser = new JFileChooser();
+		filechooser.setCurrentDirectory(new File("d:/d_other"));
+		
+		String fileName = null;
+		File file = null;
+		
+		int result = filechooser.showOpenDialog(new JPanel());
+		if (result == JFileChooser.APPROVE_OPTION) {
+			file = filechooser.getSelectedFile();	// 선택된 파일
+			fileName = file.getName();
+		} else {
+			System.out.println("파일 전송을 취소합니다.");
 			return;
 		}
 		
