@@ -26,15 +26,14 @@ public class jdbcTest03 {
 			System.out.print("두번째 lprod_id를 입력하세요 > ");
 			int value2 = Integer.parseInt(scan.nextLine());
 			
-			int temp = 0;
 			if (value2 < value1) {
-				temp = value1;
+				int temp = value1;
 				value1 = value2;
 				value2 = temp;
 			}
-			
+
 			String sql = "SELECT * FROM LPROD WHERE LPROD_ID BETWEEN " + value1 + " AND " + value2;
-			
+
 			rs = stmt.executeQuery(sql);
 			
 			System.out.println(" == SQL문의 처리 결과 ==");
