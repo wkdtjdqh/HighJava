@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import kr.or.ddit.util.DBUtil;
+
 /*
 	Lprod 테이블에 새로운 데이터 추가하기
 	
@@ -15,10 +17,6 @@ import java.util.Scanner;
 */
 public class jdbcTest05 {
 	
-	public static void inputData(){
-		
-	}
-	
 	public static void main(String[] args) {
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -26,8 +24,7 @@ public class jdbcTest05 {
 		String sql = "", gu = "", nm = "";
 		
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "PC11", "java");
+			conn = DBUtil.getConnection();
 			
 			Scanner scan = new Scanner(System.in);
 			
@@ -35,6 +32,10 @@ public class jdbcTest05 {
 				
 				System.out.print("LPROD_GU >> ");
 				gu = scan.nextLine();
+				if (gu.length() > 4) {
+					System.out.println("LPROD_GU는 문자 4자리 까지만 가능합니다. 다시 입력하세요.");
+					continue;
+				}
 				
 				System.out.println(gu);
 				sql = "SELECT * FROM LPROD WHERE LPROD_GU = ?";
