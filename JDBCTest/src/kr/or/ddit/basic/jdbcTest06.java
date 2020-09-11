@@ -62,8 +62,8 @@ public class jdbcTest06 {
 
 	private void end() {
 		if(ps != null){ try{ ps.close(); } catch(SQLException e){ } }
-		if(rs != null){ try{ ps.close(); } catch(SQLException e){ } }
-		if(conn != null){ try{ ps.close(); } catch(SQLException e){ } }
+		if(rs != null){ try{ rs.close(); } catch(SQLException e){ } }
+		if(conn != null){ try{ conn.close(); } catch(SQLException e){ } }
 		System.out.println("종료합니다.");
 		System.exit(0);
 	}
@@ -83,7 +83,7 @@ public class jdbcTest06 {
 			e.printStackTrace();
 		} finally {
 			if(ps != null){ try{ ps.close(); } catch(SQLException e){ } }
-			if(rs != null){ try{ ps.close(); } catch(SQLException e){ } }
+			if(rs != null){ try{ rs.close(); } catch(SQLException e){ } }
 		}
 		return false;	// 존재하지 않는 아이디
 	}
@@ -105,7 +105,7 @@ public class jdbcTest06 {
 			e.printStackTrace();
 		} finally {
 			if(ps != null){ try{ ps.close(); } catch(SQLException e){ } }
-			if(rs != null){ try{ ps.close(); } catch(SQLException e){ } }
+			if(rs != null){ try{ rs.close(); } catch(SQLException e){ } }
 		}
 	}
 
@@ -140,6 +140,9 @@ public class jdbcTest06 {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			if(ps != null){ try{ ps.close(); } catch(SQLException e){ } }
+			if(conn != null){ try{ conn.close(); } catch(SQLException e){ } }
 		}
 	}
 
