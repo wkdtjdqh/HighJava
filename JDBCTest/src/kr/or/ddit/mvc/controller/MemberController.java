@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 import kr.or.ddit.mvc.service.IMemberService;
+import kr.or.ddit.mvc.service.MemberServiceImpl;
 import kr.or.ddit.mvc.vo.MemberVO;
 
 public class MemberController {
@@ -12,7 +13,7 @@ public class MemberController {
 	private Scanner scan = new Scanner(System.in);
 	
 	public MemberController() {
-		service = new MemberServiceImpl();
+		service = MemberServiceImpl.getInstance();
 	}
 	
 	public void management(){

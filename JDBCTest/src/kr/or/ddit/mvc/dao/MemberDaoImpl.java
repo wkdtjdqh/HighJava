@@ -12,8 +12,16 @@ import kr.or.ddit.mvc.vo.MemberVO;
 import kr.or.ddit.util.DBUtil3;
 
 public class MemberDaoImpl implements IMemberDao{
+	private static MemberDaoImpl singleMdi;
 	Connection conn = null;
 	PreparedStatement ps = null;
+	
+	private MemberDaoImpl() {}
+	
+	public static MemberDaoImpl getInstance(){
+		if(singleMdi == null) singleMdi = new MemberDaoImpl();
+		return singleMdi;
+	}
 	
 	public int insertMember(MemberVO memVo) {
 		int cnt = 0;

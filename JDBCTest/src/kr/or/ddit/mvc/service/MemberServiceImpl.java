@@ -1,18 +1,23 @@
-package kr.or.ddit.mvc.controller;
+package kr.or.ddit.mvc.service;
 
 import java.util.List;
 import java.util.Map;
 
 import kr.or.ddit.mvc.dao.IMemberDao;
 import kr.or.ddit.mvc.dao.MemberDaoImpl;
-import kr.or.ddit.mvc.service.IMemberService;
 import kr.or.ddit.mvc.vo.MemberVO;
 
 public class MemberServiceImpl implements IMemberService{
+	private static MemberServiceImpl singleMsi;
 	private IMemberDao dao;	// DAO객체 변수 생성
 	
-	public MemberServiceImpl() {
-		dao = new MemberDaoImpl();
+	private MemberServiceImpl() {
+		dao = MemberDaoImpl.getInstance();
+	}
+	
+	public static MemberServiceImpl getInstance() {
+		if(singleMsi == null) singleMsi = new MemberServiceImpl();
+		return singleMsi;
 	}
 
 	@Override

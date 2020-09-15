@@ -24,7 +24,7 @@ public class BoardController {
 	public void display() {
 		while(true) {
 			List<BoardVO> mainViewAll = new ArrayList<>();
-			if (" ".equals(view) || view == null) {
+			if (" ".equals(view) || "".equals(view) || view == null) {
 				mainViewAll = service.searchAll();
 			} else {
 				BoardVO mainView = service.searchTitle(view);
