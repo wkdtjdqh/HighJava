@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="myboard">
+	<insert id="insertBoard" parameterClass="BoardVo">
+		INSERT INTO JDBC_BOARD(BOARD_NO, BOARD_TITLE, BOARD_WRITER, BOARD_DATE, BOARD_CONTENT)
+		VALUES(BOARD_SEQ.NEXTVAL, #BOARD_TITLE#, #BOARD_WRITER#, sysdate, #BOARD_CONTENT#)
+	</insert>
+	
+	<select id="viewBoard" parameterClass="int" resultClass="BoardVo">
+		SELECT BOARD_NO, BOARD_TITLE, BOARD_WRITER, BOARD_CONTENT, BOARD_DATE, BOARD_CNT
+		FROM JDBC_BOARD WHERE BOARD_NO = #BOARD_NO#
+	</select>
+
+	<update id="updateBoard" parameterClass="BoardVo">
+		UPDATE JDBC_BOARD SET BOARD_TITLE = #BOARD_TITLE#, BOARD_CONTENT = #BOARD_CONTENT# 
+		WHERE BOARD_NO = #BOARD_NO#
+	</update>
+	
+	<delete id="deleteBoard" parameterClass="int">
+		DELETE FROM JDBC_BOARD WHERE BOARD_NO = #BOARD_NO#
+	</delete>
+	
+	<select id="searchTitle" parameterClass="string" resultClass="BoardVo">
+		SELECT BOARD_NO, BOARD_TITLE, BOARD_WRITER, BOARD_CONTENT, BOARD_DATE, BOARD_CNT
+		FROM JDBC_BOARD WHERE BOARD_TITLE LIKE '%' || #BOARD_TITLE# || '%'
+		ORDER BY BOARD_NO DESC
+	</select>
+	
+	<update id="updateCnt" parameterClass="int">
+		UPDATE JDBC_BOARD SET BOARD_CNT = (SELECT MAX(BOARD_CNT) + 1 FROM JDBC_BOARD WHERE BOARD_NO = #BOARD_NO#)
+		WHERE BOARD_NO = #BOARD_NO# 
+	</update>
+	
+	<select id="searchAll" resultClass="BoardVo">
+		SELECT BOARD_NO, BOARD_TITLE, BOARD_WRITER, BOARD_CONTENT, BOARD_DATE, BOARD_CNT
+		FROM JDBC_BOARD	ORDER BY BOARD_NO DESC
+	</select>
+	
+</sqlMap>
