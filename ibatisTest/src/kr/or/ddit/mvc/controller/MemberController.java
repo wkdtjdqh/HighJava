@@ -1,22 +1,23 @@
 package kr.or.ddit.mvc.controller;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 import kr.or.ddit.mvc.service.IMemberService;
 import kr.or.ddit.mvc.service.MemberServiceImpl;
 import kr.or.ddit.mvc.vo.MemberVO;
 
-public class MemberController {
+public class MemberController{
 	private IMemberService service;
 	private Scanner scan = new Scanner(System.in);
+	private static AES256Util aes256;
 	
-	public MemberController() {
+	public MemberController() throws Exception{
 		service = MemberServiceImpl.getInstance();
+		aes256 = new AES256Util();
 	}
 	
-	public void management(){
+	public void management() throws Exception{
 		while(true){
 			int input = display();
 			
@@ -49,7 +50,7 @@ public class MemberController {
 		System.exit(0);
 	}
 	
-	private void select() {
+	private void select() throws Exception{
 		List<MemberVO> memList = service.getAllMember();
 		
 		if (memList == null || memList.size() == 0) {
@@ -61,7 +62,7 @@ public class MemberController {
 			System.out.println(" ID\tNAME\t    TEL\t\tADDRESS");
 			System.out.println("-----------------------------------------");
 			for(MemberVO memVO : memList) {
-				System.out.println(memVO.getMem_id() + "\t" + memVO.getMem_name() + "\t"
+				System.out.println(aes256.decrypt(memVO.getMem_id()) + "\t" + memVO.getMem_name() + "\t"
 									+ memVO.getMem_tel() + "\t" + memVO.getMem_addr());
 			}
 			System.out.println("-----------------------------------------");
@@ -72,12 +73,12 @@ public class MemberController {
 
 	}
 	*/
-	private void update2() {
+	private void update2() throws Exception{
 		int cnt = 0;
 		String memId = null;
 		do {
 			System.out.print("UPDATE ID > ");
-			memId = scan.nextLine();
+			memId = aes256.encrypt(scan.nextLine());
 			cnt = service.getMemberCount(memId);
 			if (cnt > 0) {
 				break;
@@ -118,12 +119,12 @@ public class MemberController {
 		}
 	}
 	
-	private void update() {
+	private void update() throws Exception{
 		int cnt = 1;
 		String memId = null;
 		do {
 			System.out.print("UPDATE ID > ");
-			memId = scan.nextLine();
+			memId = aes256.encrypt(scan.nextLine());
 			cnt = service.getMemberCount(memId);
 			if (cnt == 0) {
 				break;
@@ -151,12 +152,12 @@ public class MemberController {
 		}
 	}
 
-	private void delete() {
+	private void delete() throws Exception{
 		int cnt = 1;
 		String memId = null;
 		do {
 			System.out.print("ID > ");
-			memId = scan.nextLine();
+			memId = aes256.encrypt(scan.nextLine());
 			cnt = service.getMemberCount(memId);
 			if (cnt == 0) {
 				break;
@@ -172,12 +173,13 @@ public class MemberController {
 		}
 	}
 
-	private void insert() {
+	private void insert() throws Exception{
 		int cnt = 0;
 		String memId = null;
+		
 		do {
 			System.out.print("ID > ");
-			memId = scan.nextLine();
+			memId = aes256.encrypt(scan.nextLine());	// ID 암호화
 			cnt = service.getMemberCount(memId);
 			if (cnt == 0) {
 				break;
@@ -207,7 +209,7 @@ public class MemberController {
 		}
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception{
 		new MemberController().management();
 	}
 }
