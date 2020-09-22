@@ -1,17 +1,54 @@
 package kr.or.ddit.basic;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class HotelManage {
 	Scanner sc = new Scanner(System.in);
-	HashMap<Integer, Room> room = new HashMap<>();
+	private HashMap<Integer, Room> room = new HashMap<>();
+	
+	// 저장
+	private void save() {
+		try {
+			ObjectOutputStream oout = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("d:/d_other/room.dat")));
+			oout.writeObject(room);
+			oout.close();
+		} catch (IOException e) {}
+		System.out.println("저장되었습니다.");
+	}
+	
+	// 불러오기
+	@SuppressWarnings("unchecked")
+	private void load() {
+		File f = new File("d:/d_other/room.dat");
+		if (!f.exists()) {
+			System.out.println("불러올 파일이 없습니다. 새로운 파일을 생성합니다.");
+			makeRoom();
+			return;
+		}
+		try {
+			ObjectInputStream oin = new ObjectInputStream(new BufferedInputStream(new FileInputStream(f)));
+			room = (HashMap<Integer, Room>) oin.readObject();
+			oin.close();
+		} catch (IOException e) {
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	// 방종류 설정
-	public String Roomkind(int roomNum) {
+	private String Roomkind(int roomNum) {
 		String roomName = "싱글룸";
 		if (roomNum > 300 && roomNum < 400) {
 			roomName = "더블룸";
@@ -22,7 +59,7 @@ public class HotelManage {
 	}
 	
 	// 방 생성
-	public void makeRoom() {
+	private void makeRoom() {
 		int roomNum = 201;
 		while(true) {
 			if (roomNum > 409) {
@@ -40,7 +77,7 @@ public class HotelManage {
 	}
 	
 	// 체크아웃
-	public void checkOut() {
+	private void checkOut() {
 		System.out.println("-------------------------");
 		System.out.println("  체크아웃 작업");
 		System.out.println("-------------------------");
@@ -53,7 +90,7 @@ public class HotelManage {
 		}
 	}
 
-	public void roomStatus() {
+	private void roomStatus() {
 		System.out.println("-------------------------");
 		System.out.println("  현재 객실 상태");
 		System.out.println("-------------------------");
@@ -68,7 +105,7 @@ public class HotelManage {
 		
 	}
 	// 체크인
-	public void checkIn() {
+	private void checkIn() {
 		System.out.println("-------------------------");
 		System.out.println("  체크인 작업");
 		System.out.println("-------------------------");
@@ -94,20 +131,21 @@ public class HotelManage {
 	}
 	
 	// 호텔운영시작
-	public void manage() {
-		makeRoom();
+	private void manage() {
+		load();
 		
 		while(true) {
 			System.out.println("-----------------------------------------------------------");
 			System.out.println("어떤 업무를 하시겠습니까?");
-			System.out.println("1.체크인    2.체크아웃    3.객실상태    4.업무종료");
+			System.out.println("1.체크인    2.체크아웃    3.객실상태    4.저장    0.업무종료");
 			System.out.println("-----------------------------------------------------------");
 			int input = Integer.parseInt(sc.nextLine());
 			switch (input) {
 			case 1: checkIn(); break;
 			case 2: checkOut(); break;
 			case 3: roomStatus(); break;
-			case 4: 
+			case 4: save(); break;
+			case 0: 
 				System.out.println("업무를 종료합니다.");
 				System.exit(0); break;
 			}
@@ -122,15 +160,15 @@ public class HotelManage {
 	}
 }
 
-class Room {
+class Room implements Serializable{
+	private static final long serialVersionUID = -8897764372949801477L;
 	private int roomNum;
 	private String room;
 	private String name;
 	
 	public Room(int roomNum, String room) {
-		super();
-		roomNum = roomNum;
-		room = room;
+		this.roomNum = roomNum;
+		this.room = room;
 	}
 
 	public int getroomNum() {
@@ -138,7 +176,7 @@ class Room {
 	}
 
 	public void setroomNum(int roomNum) {
-		roomNum = roomNum;
+		this.roomNum = roomNum;
 	}
 
 	public String getroom() {
@@ -146,7 +184,7 @@ class Room {
 	}
 
 	public void setroom(String room) {
-		room = room;
+		this.room = room;
 	}
 
 	public String getName() {
